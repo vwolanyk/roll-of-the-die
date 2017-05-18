@@ -1,44 +1,30 @@
-# Total Times
+# ODDS
 
+# Empty Hash of Possibilities
+roll_totals = { 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0, 10 =>0, 11=>0, 12 => 0}
 
-# Creat Arrays for each die
-
-dice_one = *(1..6)
-
-dice_two = *(1..6)
-
-
-# Create arrays for roll totals and Possibilities
-
-roll_total = []
-roll_total_possibilities = *(2..12)
-
-# Empty Hash for Total Times
-
-total_times = {}
-
-# GET Array of TOTALS from Every permutation of roll
+# GET TOTALS from Every permutation of roll
 #  - Nested Iterations Get every permutation
+#   - Add totals to hash per occurs
 
-  dice_one.each do |numd1|
-    dice_two.each do|numd2|
+  (1..6).each do |numd1|
+    (1..6).each do|numd2|
       total = numd1 + numd2
-      roll_total.push(total)
+      roll_totals[total] += 1
     end
-  end
-
-# Create Hash of Possibilities and Totals
-
-  roll_total_possibilities.each do |poss|
-    total_times[poss] = roll_total.count(poss)
   end
 
 # DISPLAY Total Times of Each Occurence
 
-# total_times.each{ |possibility, total_occur| puts "#{possibility} occurs #{total_occur} times" }
+# roll_totals.each{ |possibility, total_occur| puts "#{possibility} occurs #{total_occur} times" }
+#
+# puts roll_totals
 
-total_times.each do |possibility, total_occur|
+# DISPLAY Odds for each Possibility
+puts roll_totals
 
-  puts "The odds of #{ possibility } coming up are #{ (total_occur / total_times.sum) * 100 }% "
+roll_totals.each do |num,times|
+  # percent =  (times/11) * 100
+  puts " The odds of #{num} coming up are #{((times.to_f/36)*100).round} %"
 
 end
