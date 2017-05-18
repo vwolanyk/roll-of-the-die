@@ -3,4 +3,5 @@
 
 die = [1, 2, 3, 4, 5, 6]
 
-puts "You rolled a: #{die[Random.rand(6)]}"
+10.times {puts "You rolled a: #{die[Random.rand(6)]}"
+}
