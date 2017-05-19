@@ -1,7 +1,8 @@
 # ODDS
 
-# Empty Hash of Possibilities
-roll_totals = { 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0, 8 => 0, 9 => 0, 10 =>0, 11=>0, 12 => 0}
+# Empty Hash of Possibilities Default set to 0
+roll_totals = Hash.new(0)
+
 
 # Counter Variable for total permuitations
 permutations = 0
@@ -17,7 +18,6 @@ permutations = 0
       permutations += 1
     end
   end
-
 
 # DISPLAY Odds for each Possibility
 
